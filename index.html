@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Tester</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Typing Speed Tester</h1>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <main class="main">
+            <!-- Stats Display -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="wpm">0</div>
+                    <div class="stat-label">WPM</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="errors">0</div>
+                    <div class="stat-label">Errors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="time">0</div>
+                    <div class="stat-label">Time (s)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="bestWpm">0</div>
+                    <div class="stat-label">Best WPM</div>
+                </div>
+            </div>
+
+            <!-- Countdown Display -->
+            <div class="countdown" id="countdown" aria-live="polite">
+                <div class="countdown-number" id="countdownNumber"></div>
+                <div class="countdown-text">Get ready to type!</div>
+            </div>
+
+            <!-- Text Display -->
+            <div class="text-container">
+                <div class="text-display" id="textDisplay" role="textbox" aria-label="Text to type"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <textarea 
+                    class="typing-input" 
+                    id="typingInput" 
+                    placeholder="Click here and start typing when ready..."
+                    disabled
+                    aria-label="Type the text shown above"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                ></textarea>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="controls">
+                <button class="btn btn-primary" id="resetBtn">
+                    <span class="btn-icon">🔄</span>
+                    Reset
+                </button>
+                <button class="btn btn-secondary" id="retryBtn">
+                    <span class="btn-icon">↩️</span>
+                    Retry
+                </button>
+            </div>
+
+            <!-- Results Modal -->
+            <div class="modal" id="resultsModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-content">
+                    <h2 id="modalTitle">Test Complete!</h2>
+                    <div class="results">
+                        <div class="result-item">
+                            <span class="result-label">Words Per Minute:</span>
+                            <span class="result-value" id="finalWpm">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Accuracy:</span>
+                            <span class="result-value" id="accuracy">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Time:</span>
+                            <span class="result-value" id="finalTime">0s</span>
+                        </div>
+                        <div class="result-item best-result" id="bestResult" style="display: none;">
+                            <span class="result-label">🎉 New Best WPM!</span>
+                        </div>
+                    </div>
+                    <div class="modal-controls">
+                        <button class="btn btn-primary" id="modalReset">New Test</button>
+                        <button class="btn btn-secondary" id="modalRetry">Try Again</button>
+                        <button class="btn btn-ghost" id="modalClose">Close</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <footer><center>&copy;Demilade Ilesanmi 2025.</center></footer>
+</body>
+</html>
